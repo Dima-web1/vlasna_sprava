@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Радіола | Продукт</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <h1 class="text-2xl font-bold text-blue-600">Радіола</h1>
+      <nav>
+        <ul class="flex space-x-4 text-sm md:text-base">
+          <li><a href="index.html" class="hover:text-blue-600">Головна</a></li>
+          <li><a href="catalog.html" class="hover:text-blue-600">Каталог</a></li>
+          <li><a href="about.html" class="hover:text-blue-600">Про нас</a></li>
+          <li><a href="blog.html" class="hover:text-blue-600">Блог</a></li>
+          <li><a href="contact.html" class="hover:text-blue-600">Контакти</a></li>
+          <li><a href="login.html" class="hover:text-blue-600">Кабінет</a></li>
+          <a href="cart.html" class="bg-red-600 text-white font-bold px-4 py-2 rounded hover:bg-red-700 transition">
+    🛒 Кошик
+  </a>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Product Section -->
+  <section class="py-12">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <img src="img/protein.jpg" alt="Протеїн" class="w-full h-auto rounded-xl shadow-md">
+
+      <div>
+        <h2 class="text-3xl font-bold mb-4">Протеїн 1кг (Шоколад)</h2>
+        <p class="text-gray-700 mb-4">Сироватковий протеїн для нарощування м'язової маси. Ідеально підходить для спортсменів-початківців і професіоналів.</p>
+
+        <ul class="list-disc list-inside text-sm text-gray-600 mb-6">
+          <li>Маса: 1 кг</li>
+          <li>Смак: шоколад</li>
+          <li>Кількість порцій: 30</li>
+        </ul>
+
+        <div class="text-2xl font-bold text-blue-600 mb-6">850 грн</div>
+
+        <button class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">Додати до кошика</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white py-6 mt-12 shadow-inner">
+    <div class="container mx-auto px-4 text-center text-sm text-gray-500">
+      &copy; 2025 Радіола. Всі права захищені.
+    </div>
+  </footer>
+</body>
+</html>

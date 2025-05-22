@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Радіола | Каталог</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-gray-900 font-sans">
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+      <h1 class="text-2xl font-bold text-blue-600">Радіола</h1>
+      <nav>
+        <ul class="flex space-x-4 text-sm md:text-base">
+          <li><a href="index.html" class="hover:text-blue-600">Головна</a></li>
+          <li><a href="catalog.html" class="hover:text-blue-600">Каталог</a></li>
+          <li><a href="about.html" class="hover:text-blue-600">Про нас</a></li>
+          <li><a href="blog.html" class="hover:text-blue-600">Блог</a></li>
+          <li><a href="contact.html" class="hover:text-blue-600">Контакти</a></li>
+          <li><a href="login.html" class="hover:text-blue-600">Кабінет</a></li>
+          <a href="cart.html" class="bg-red-600 text-white font-bold px-4 py-2 rounded hover:bg-red-700 transition">
+    🛒 Кошик
+  </a>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-8">
+    <h2 class="text-3xl font-bold mb-6">Наші товари</h2>
+    <div id="product-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </main>
+
+  <footer class="bg-white py-6 mt-12 shadow-inner">
+    <div class="container mx-auto px-4 text-center text-sm text-gray-500">
+      &copy; 2025 Радіола. Всі права захищені.
+    </div>
+  </footer>
+
+  <script>
+  const products = [
+    {
+      id: 1,
+      name: "Гантелі 10 кг",
+      price: 500,
+      description: "Набір гантелей для силових тренувань вдома.",
+      image: "dumbbells.jpg"
+    },
+    {
+      id: 2,
+      name: "Фітнес килимок",
+      price: 350,
+      description: "Комфортний килимок для йоги та фітнесу.",
+      image: "mat.jpg"
+    },
+    {
+      id: 3,
+      name: "Тренувальна резинка",
+      price: 150,
+      description: "Резинка для функціональних вправ та розтяжки.",
+      image: "band.jpg"
+    },
+    {
+      id: 4,
+      name: "М’яч для фітболу",
+      price: 400,
+      description: "Професійний фітбол 65 см для занять вдома.",
+      image: "fitball.jpg"
+    },
+    {
+      id: 5,
+      name: "Скакалка професійна",
+      price: 250,
+      description: "Скакалка з регулюванням довжини для кардіо.",
+      image: "rope.jpg"
+    },
+    {
+      id: 6,
+      name: "Бутилка для води 1л",
+      price: 120,
+      description: "Практична пляшка для спорту з носиком.",
+      image: "bottle.jpg"
+    }
+  ];
+
+  const productList = document.getElementById('product-list');
+
+  function renderProducts() {
+    products.forEach(product => {
+      const productEl = document.createElement('div');
+      productEl.className = 'bg-white p-4 rounded shadow flex flex-col';
+      productEl.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" class="w-full h-40 object-cover rounded mb-4">
+        <h3 class="text-lg font-semibold mb-1">${product.name}</h3>
+        <p class="text-gray-600 text-sm mb-2">${product.description}</p>
+        <p class="text-blue-700 font-bold mb-4">${product.price} грн</p>
+        <button onclick="addToCart(${product.id})"
+          class="mt-auto bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+          Додати в кошик
+        </button>
+      `;
+      productList.appendChild(productEl);
+    });
+  }
+
+  function addToCart(productId) {
+    const product = products.find(p => p.id === productId);
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existing = cart.find(item => item.id === product.id);
+
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push({ ...product, quantity: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    alert(`${product.name} додано в кошик!`);
+  }
+
+  renderProducts();
+</script>
+
+</body>
+</html>
